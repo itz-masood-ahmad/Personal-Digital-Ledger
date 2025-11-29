@@ -1,8 +1,16 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api";
+const IS_DEVELOPMENT = import.meta.env.MODE === "development";
+
+
+// const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api";
 
 // CONFIGURATION
-export const API_BASE_URL = '/api';
+// export const API_BASE_URL = BASE_URL;
+// export const API_BASE_URL = '/api';
 export const MOCK_MODE = false; 
+
+export const API_BASE_URL = IS_DEVELOPMENT 
+  ? "/api" 
+  : "https://personal-digital-ledger-backend.onrender.com/api";
 
 export const endpoints = {
   auth: { 
