@@ -75,7 +75,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Allow your React Frontend specifically
-        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+        configuration.setAllowedOrigins(List.of("http://localhost:5173",
+                "https://personal-ledger.onrender.com"));
 
         // Allow all standard methods
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
@@ -89,7 +90,7 @@ public class SecurityConfig {
                 "userEmail",
                 "Access-Control-Request-Method",
                 "Access-Control-Request-Headers"));
-        
+
         // Allow credentials (cookies/auth headers)
         configuration.setAllowCredentials(true);
 
