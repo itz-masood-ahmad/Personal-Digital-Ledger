@@ -141,7 +141,7 @@ const Home = () => {
 
       {/* Footer */}
       <footer className="bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900 py-12 text-center">
-        <p className="text-gray-400 text-sm">© 2024 Ledger Personal Finance. Built for security and simplicity.</p>
+        <p className="text-gray-400 text-sm">© 2025 Ledger Personal Finance. Built for security and simplicity.</p>
       </footer>
     </div>
   );
