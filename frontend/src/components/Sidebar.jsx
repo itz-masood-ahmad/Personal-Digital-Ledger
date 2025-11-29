@@ -29,7 +29,7 @@ const Sidebar = ({ isOpen }) => {
       </div>
 
       <nav className="flex-1 px-4 py-4 space-y-2">
-        <NavItem icon={Home} label="Dashboard" active={isActive('/') || isActive('/dashboard')} onClick={() => navigate('/')} isOpen={isOpen} />
+        <NavItem icon={Home} label="Dashboard" active={isActive('/dashboard')} onClick={() => navigate('/dashboard')} isOpen={isOpen} />
         <NavItem icon={Wallet} label="Accounts" active={isActive('/accounts')} onClick={() => navigate('/accounts')} isOpen={isOpen} />
         <NavItem icon={ArrowDownLeft} label="Credits/Income" active={isActive('/credits')} onClick={() => navigate('/credits')} isOpen={isOpen} />
         <NavItem icon={PieChart} label="Budgets" active={isActive('/budgets')} onClick={() => navigate('/budgets')} isOpen={isOpen} />
