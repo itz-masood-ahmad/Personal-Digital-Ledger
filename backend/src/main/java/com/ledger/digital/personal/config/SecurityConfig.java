@@ -5,6 +5,7 @@ import com.ledger.digital.personal.security.ApiKeyFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -16,6 +17,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -56,6 +58,7 @@ public class SecurityConfig {
 
                 // Allow all requests (Authentication is handled by your ApiKeyFilter)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().permitAll()
                 )
 
@@ -78,8 +81,15 @@ public class SecurityConfig {
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
         // Allow all headers (Crucial for X-API-KEY)
-        configuration.setAllowedHeaders(List.of("*"));
-
+//        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization",
+                "Content-Type",
+                "Cache-Control",
+                "X-API-KEY",
+                "userEmail",
+                "Access-Control-Request-Method",
+                "Access-Control-Request-Headers"));
+        
         // Allow credentials (cookies/auth headers)
         configuration.setAllowCredentials(true);
 
